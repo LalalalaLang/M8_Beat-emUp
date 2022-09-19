@@ -1,0 +1,22 @@
+BEAT THEM UP
+
+
+5 jours de travail collaboratif
+team de 2 : Bamboo + Lang
+
+
+J-1 lundi 19/09/2022
+
+mise en place de la collaboration
+Discord visio avec Bamboo :
+	1.	L => création GitHub main
+	2.	L => découpage des sprites sheets
+	3.	L => animation
+	4.	L => animator
+	5.	L => perso principal
+	6.	L => envoie des avancements via GitHub
+
+		B => environnement de jeu
+
+J-2	mardi 20/09/2022
+
