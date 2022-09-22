@@ -12,6 +12,7 @@ public class playerOne : MonoBehaviour
     public float Horizontal;
     public float Vertical;
     public bool Jumping;
+    public float jumpForce;
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +21,37 @@ public class playerOne : MonoBehaviour
         oneAnim = gameObject.GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+
+        vecPlayer.x = rigidB.velocity.x;
+        vecPlayer.y = rigidB.velocity.y;
+
+        //image du perso s'inverse lorsqu'il tourne
+        if (Horizontal < 0)
+        {
+            this.transform.localScale = new Vector3(-4, 4, 1);
+            oneAnim.SetBool("playerMoving", true);
+        }
+        if (Horizontal > 0)
+        {
+            this.transform.localScale = new Vector3(4, 4, 1);
+            oneAnim.SetBool("playerMoving", true);
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
+        //input pour se déplacer (pas encore au point, trouver pourquoi)
         Horizontal = Input.GetAxisRaw("Horizontal");
-        Vertical = Input.GetAxis("Vertical");  
-        vecPlayer.x = rigidB.velocity.x;
-        vecPlayer.y = rigidB.velocity.y;
+        Vertical = Input.GetAxis("Vertical");
+        rigidB.velocity = new Vector2(Horizontal, Vertical) * speed;
+
         oneAnim.SetBool("playerMoving", true);
         Jumping = false;
 
+        //activation animation walk
         if(vecPlayer.magnitude > 0)
         {
             oneAnim.SetBool("playerMoving", true);
@@ -38,43 +60,29 @@ public class playerOne : MonoBehaviour
             oneAnim.SetBool("playerMoving", false);
         }
 
+        //fonction animation attack
         if(Input.GetKey(KeyCode.Joystick1Button0))
         {
             oneAnim.SetBool("Attack", true);
         }
+
         if(Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             oneAnim.SetBool("Attack", false);
         }
-       /* if( Horizontal < 0)
-        {
-            this.transform.localScale = new Vector3(-4, 4, 1);
-            oneAnim.SetBool("playerMoving", true);
-        }
-        if (Horizontal > 0)
-        {
-          
-            this.transform.localScale = new Vector3(4, 4, 1);
-            oneAnim.SetBool("playerMoving", true);
-        }*/
+ 
+        //fonction animation jump
         if (Input.GetKey(KeyCode.JoystickButton1))
         {
             Jumping = true;
             oneAnim.SetBool("jumping", true);
         }
+        
         if(Input.GetKeyUp(KeyCode.JoystickButton1))
         {
             Jumping = false;
             oneAnim.SetBool("jumping", false);
         }
-
-
-    }
-    private void FixedUpdate()
-    {
-        rigidB.velocity = new Vector2(Horizontal, Vertical) * speed;
-     
-        
     }
 }
 

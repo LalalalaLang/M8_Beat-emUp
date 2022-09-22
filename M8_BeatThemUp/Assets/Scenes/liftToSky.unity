@@ -145,6 +145,7 @@ MonoBehaviour:
   Horizontal: 0
   Vertical: 0
   Jumping: 0
+  jumpForce: 10
 --- !u!95 &857478067 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8710722820949992272, guid: 3847058018d884841877092dc4c20ceb, type: 3}
