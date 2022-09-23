@@ -17,7 +17,7 @@ public class playerOne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidB = GetComponent<Rigidbody2D>();
+        rigidB = GetComponentInParent<Rigidbody2D>();
         oneAnim = gameObject.GetComponent<Animator>();
     }
 
@@ -26,6 +26,7 @@ public class playerOne : MonoBehaviour
 
         vecPlayer.x = rigidB.velocity.x;
         vecPlayer.y = rigidB.velocity.y;
+        rigidB.velocity = new Vector2(Horizontal, Vertical) * speed;
 
         //image du perso s'inverse lorsqu'il tourne
         if (Horizontal < 0)
@@ -45,8 +46,8 @@ public class playerOne : MonoBehaviour
     {
         //input pour se déplacer (pas encore au point, trouver pourquoi)
         Horizontal = Input.GetAxisRaw("Horizontal");
-        Vertical = Input.GetAxis("Vertical");
-        rigidB.velocity = new Vector2(Horizontal, Vertical) * speed;
+        Vertical = Input.GetAxisRaw("Vertical");
+      
 
         oneAnim.SetBool("playerMoving", true);
         Jumping = false;
