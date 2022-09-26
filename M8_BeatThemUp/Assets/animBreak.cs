@@ -7,7 +7,7 @@ public class animBreak : MonoBehaviour
 {
     public Animator waterFountain;
     public TagAttribute Player;
-    private Collider2D target;
+    public Collider2D target;
 
     // Start is called before the first frame update
     void Start()

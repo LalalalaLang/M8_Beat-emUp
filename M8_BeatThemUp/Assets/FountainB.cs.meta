@@ -3,7 +3,9 @@ guid: ce883527f48c3774dbaa7ae161381d13
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - extraLifePt: {fileID: 7010783311196149817, guid: 99e80b221bee590499dbc89d128ba4f8, type: 3}
+  - waterFountain: {fileID: 4918047337544026565, guid: d2d425deb5bb8ef46a2d41f4867424cc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -205,5 +205,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce883527f48c3774dbaa7ae161381d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraLifePt: {fileID: 0}
-  waterFountain: {fileID: 0}
+  extraLifePt: {fileID: 7010783311196149817, guid: 99e80b221bee590499dbc89d128ba4f8, type: 3}
+  waterFountain: {fileID: 2412588980629673534, guid: 61109d37402c2a94390729be476610bc, type: 3}

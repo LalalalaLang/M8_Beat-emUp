@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2683458269787584251}
   - component: {fileID: 7713941710315966872}
-  - component: {fileID: 5512312544729919063}
+  - component: {fileID: 3720031147379646203}
+  - component: {fileID: -811828533825118088}
   m_Layer: 0
   m_Name: waterFountain
   m_TagString: Untagged
@@ -82,10 +83,23 @@ SpriteRenderer:
   m_Size: {x: 0.23, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5512312544729919063
+--- !u!114 &3720031147379646203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918047337544026565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e7963dd53659742a70ae5059826896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterFountain: {fileID: 0}
+--- !u!95 &-811828533825118088
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -95,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 4918047337544026565}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6cfd711a12b16cb478f8794682a81557, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2540f0391f25aee4b8abcac507e3c95a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

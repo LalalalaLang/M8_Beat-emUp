@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5935604030248149798}
   - component: {fileID: 7913738050917660615}
   - component: {fileID: 3824345127925473302}
+  - component: {fileID: 4846100214313704021}
   m_Layer: 0
   m_Name: extraLifePt
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7010783311196149817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.32, y: -3.36, z: 0}
+  m_LocalPosition: {x: 12.972, y: -0.552, z: 0}
   m_LocalScale: {x: 6.5792, y: 6.5792, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,3 +106,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &4846100214313704021
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010783311196149817}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0008844303, y: 0.00035379388}
+  m_Size: {x: 0.094550334, y: 0.15504703}
+  m_Direction: 0
