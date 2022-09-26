@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private float health = 0f;
     [SerializeField] private float maxHealth = 20f;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()

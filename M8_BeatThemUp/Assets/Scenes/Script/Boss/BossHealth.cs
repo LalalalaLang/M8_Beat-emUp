@@ -6,9 +6,9 @@ public class BossHealth : MonoBehaviour
 {
 	public int health = 10;
 
-	public GameObject deathEffect;
-
 	public bool isInvulnerable = false;
+
+	public Animator anim;
 
 	public void TakeDamage(int damage)
 	{
@@ -24,13 +24,9 @@ public class BossHealth : MonoBehaviour
 
 		if (health <= 0)
 		{
-			Die();
+			anim.SetBool("die", true);
+			Destroy(gameObject);
 		}
 	}
-
-	void Die()
-	{
-		Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(gameObject);
-	}
 }
+
