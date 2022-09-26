@@ -22,9 +22,11 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("die", false);
+
         if (health <= 0)
         {
-            anim.SetTrigger("die");
+            anim.SetBool("die", true);
 
             //give player some time to recover before taking more damage
             if (timeBtwDamage > 0)
