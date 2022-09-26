@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
-    /*public int health;
+    public int health;
     public int damage;
     private float timeBtwDamage = 1.5f;
 
-    public Animator camAnim;
+    //public Animator camAnim;
     public Slider healthBar;
     public Animator anim;
 
@@ -34,17 +34,18 @@ public class Boss : MonoBehaviour
 
             healthBar.value = health;
         }
-        private void onTriggerEnter2D(Collider2D other)
+        
+        /*private void onTriggerEnter2D(Collider2D other)
         {
             //deal the player damage
-            if (other.CompareTage("Player)){
+            if (other.CompareTag("Player")) { }
 
 
-        if (timeBtwDamage <= 0)
-                {
-                }*/
+            if (timeBtwDamage <= 0)
+            {
+            }
 
 
-    
-}
+        }*/
+    } }
 
