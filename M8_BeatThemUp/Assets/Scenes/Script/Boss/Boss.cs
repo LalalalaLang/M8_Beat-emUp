@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     public int health;
-    public int damage;
+    public int damageAtt;
+    public int damageSla;
     private float timeBtwDamage = 1.5f;
 
     //public Animator camAnim;
@@ -22,9 +23,11 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("die", false);
+
         if (health <= 0)
         {
-            anim.SetTrigger("die");
+            anim.SetBool("die", true);
 
             //give player some time to recover before taking more damage
             if (timeBtwDamage > 0)

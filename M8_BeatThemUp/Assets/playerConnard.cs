@@ -44,7 +44,7 @@ public class playerConnard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //input pour se déplacer (pas encore au point, trouver pourquoi)
+        //input pour se déplacer 
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
 

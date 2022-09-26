@@ -6,21 +6,23 @@ public class FountainB : StateMachineBehaviour
 {
     public GameObject extraLifePt;
     public GameObject waterFountain;
+    private float localCan = 0.5f;
 
      //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-     private void Awake()
-    {
-        Instantiate(extraLifePt);
-        extraLifePt.transform.localPosition = waterFountain.transform.localPosition *2;
-    }
+    // private void Awake()
+    // {
+    //}
 
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+   
+    {
+        
+        Instantiate(extraLifePt);
+    extraLifePt.transform.localPosition = waterFountain.transform.localPosition* localCan;
+}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

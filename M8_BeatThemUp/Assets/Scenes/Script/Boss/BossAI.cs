@@ -16,8 +16,9 @@ public class BossAI : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
-    public Vector3 direction;
-
+    
+    private float Horizontal;
+ 
     private bool isInChaseRange;
     private bool isInAttackRange;
 
@@ -34,20 +35,32 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("walk", isInChaseRange);
-
+        anim.SetBool("walk", true);
+        //radius de chasse
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, towardsWho);
+        //le radius d'attack
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, towardsWho);
 
-        direction = target.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
-        movement = direction;
-        //if (shouldRotate)
-        //{
-            //anim.SetFloat("X", direction.x);
-            //anim.SetFloat("Y", direction.y);
-        //}
+        // difference de distance player-boss
+        movement = target.position - transform.position;
+        //calcul du périmètre de poursuite
+        float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+        movement.Normalize(); 
+        Horizontal = movement.x;
+
+        //boss peut se tourner 
+        if (Horizontal < 0)
+        {
+            this.transform.localScale = new Vector3(-5, 5, 1);
+            anim.SetBool("walk", true);
+        }
+        if (Horizontal > 0)
+        {
+            this.transform.localScale = new Vector3(5, 5, 1);
+            anim.SetBool("walk", true);
+        }
+
+       
     }
 
     private void FixedUpdate()

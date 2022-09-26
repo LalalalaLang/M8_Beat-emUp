@@ -22,6 +22,11 @@ public class attackToSlam : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+       // if (anim.SetBool("attack", true)
+        //{
+          //  Instantiate.new collider2D.boss.tansform.localposition ;
+        //}
+
         if (timer <= 0)
         {
             animator.SetBool("slam", true);
