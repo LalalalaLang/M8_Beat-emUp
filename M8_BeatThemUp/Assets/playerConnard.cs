@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class playerOne : MonoBehaviour
+public class playerConnard : MonoBehaviour
 {
     private Rigidbody2D rigidB;
     private Vector2 vecPlayer;
@@ -47,39 +47,40 @@ public class playerOne : MonoBehaviour
         //input pour se déplacer (pas encore au point, trouver pourquoi)
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
-      
+
 
         oneAnim.SetBool("playerMoving", true);
         Jumping = false;
 
         //activation animation walk
-        if(vecPlayer.magnitude > 0)
+        if (vecPlayer.magnitude > 0)
         {
             oneAnim.SetBool("playerMoving", true);
-        }else
+        }
+        else
         {
             oneAnim.SetBool("playerMoving", false);
         }
 
         //fonction animation attack
-        if(Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             oneAnim.SetBool("Attack", true);
         }
 
-        if(Input.GetKeyUp(KeyCode.Joystick1Button0))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             oneAnim.SetBool("Attack", false);
         }
- 
+
         //fonction animation jump
         if (Input.GetKey(KeyCode.JoystickButton1))
         {
             Jumping = true;
             oneAnim.SetBool("jumping", true);
         }
-        
-        if(Input.GetKeyUp(KeyCode.JoystickButton1))
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton1))
         {
             Jumping = false;
             oneAnim.SetBool("jumping", false);
