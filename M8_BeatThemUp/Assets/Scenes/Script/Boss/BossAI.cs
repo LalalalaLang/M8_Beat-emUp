@@ -8,8 +8,6 @@ public class BossAI : MonoBehaviour
     public float checkRadius;
     public float attackRadius;
 
-    public bool shouldRotate;
-
     public LayerMask towardsWho;
 
     private Transform target;

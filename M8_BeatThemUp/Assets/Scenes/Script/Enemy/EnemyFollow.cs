@@ -4,58 +4,83 @@ using UnityEngine;
 
 namespace FollowPlayer
 {
-    [RequireComponent(typeof(Rigidbody))]
-
     public class EnemyFollow : MonoBehaviour
 
     {
-        private Transform _transform;
-        private Rigidbody2D _rb2D;
 
-        public float _moveSpeed = default;
+        public float speed;
+        public float checkRadius;
+        public float attackRadius;
 
-        public float _rotatSpeed = default;
+        public LayerMask towardsWho;
 
-        [SerializeField]
-        private Transform _playerTransform;
+        private Transform target;
+        private Rigidbody2D rb;
+        private Animator anim;
+        private Vector2 movement;
+
+        private float Horizontal;
+
+        private bool isInChaseRange;
+        private bool isInAttackRange;
 
 
-        private void Awake()
-        {
-            _transform = GetComponent<Transform>();
-            _rb2D = GetComponent<Rigidbody2D>();
-        }
-
+        // Start is called before the first frame update
         void Start()
         {
-            _playerTransform = GameObject.Find("Player").transform;
+            rb = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
+            target = GameObject.FindWithTag("Player").transform;
+        }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+            anim.SetBool("walk", true);
+            //radius de chasse
+            isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, towardsWho);
+            //le radius d'attack
+            isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, towardsWho);
+
+            // difference de distance player-boss
+            movement = target.position - transform.position;
+            //calcul du périmètre de poursuite
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            movement.Normalize();
+            Horizontal = movement.x;
+
+            //boss peut se tourner 
+            if (Horizontal < 0)
+            {
+                this.transform.localScale = new Vector3(-5, 5, 1);
+                anim.SetBool("walk", true);
+            }
+            if (Horizontal > 0)
+            {
+                this.transform.localScale = new Vector3(5, 5, 1);
+                anim.SetBool("walk", true);
+            }
+
+
         }
 
         private void FixedUpdate()
         {
-            TurnTowardsPlayer();//méthode tourner l'ennemi vers le joueur
-            
-            MoveForward();//méthode avancer progressivement l'ennemi vers le joueur.
+            if (isInChaseRange && !isInAttackRange)
+            {
+                MoveCharacter(movement);
+            }
+            if (isInAttackRange)
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
 
-
-        // Faire tourner l'ennemi vers le joueur
-        private void TurnTowardsPlayer()
+        private void MoveCharacter(Vector2 direction)
         {
-            Vector3 directionToPlayer = (_playerTransform.position - _transform.position).normalized;
+            rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
 
-            Quaternion rotationToPlayer = Quaternion.LookRotation(directionToPlayer);
-
-            Quaternion rotation = Quaternion.RotateTowards(_transform.rotation, rotationToPlayer, _rotatSpeed * Time.fixedDeltaTime);
-
-            _rb2D.MoveRotation(rotation);
-        }
-
-        // Faire avancer l'ennemi tout droit
-        private void MoveForward()
-        {
-            Vector3 velocity = _transform.forward * _moveSpeed;
-            _rb2D.velocity = velocity;
         }
     }
 }
