@@ -5,8 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 3f;
-    [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] private float attackDamage = 2f;
+    [SerializeField] private float attackSpeed = 2f;
     private float canAttack;
 
     private Transform target;

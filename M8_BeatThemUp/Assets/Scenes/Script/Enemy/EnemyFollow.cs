@@ -10,7 +10,7 @@ namespace FollowPlayer
 
     {
         private Transform _transform;
-        private Rigidbody _rigidbody;
+        private Rigidbody2D _rb2D;
 
         public float _moveSpeed = default;
 
@@ -23,7 +23,7 @@ namespace FollowPlayer
         private void Awake()
         {
             _transform = GetComponent<Transform>();
-            _rigidbody = GetComponent<Rigidbody>();
+            _rb2D = GetComponent<Rigidbody2D>();
         }
 
         void Start()
@@ -48,14 +48,14 @@ namespace FollowPlayer
 
             Quaternion rotation = Quaternion.RotateTowards(_transform.rotation, rotationToPlayer, _rotatSpeed * Time.fixedDeltaTime);
 
-            _rigidbody.MoveRotation(rotation);
+            _rb2D.MoveRotation(rotation);
         }
 
         // Faire avancer l'ennemi tout droit
         private void MoveForward()
         {
             Vector3 velocity = _transform.forward * _moveSpeed;
-            _rigidbody.velocity = velocity;
+            _rb2D.velocity = velocity;
         }
     }
 }
