@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class playerHealthLife : MonoBehaviour
 {
     [SerializeField] private float startHealth;
 
@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     private Animator anim;
     private bool dead;
-    
+
 
     private void Awake()
     {
@@ -37,5 +37,4 @@ public class Health : MonoBehaviour
 
         }
     }
-
 }
