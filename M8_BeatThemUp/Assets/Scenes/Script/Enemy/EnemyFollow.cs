@@ -28,8 +28,8 @@ namespace FollowPlayer
         // Start is called before the first frame update
         void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
-            anim = GetComponent<Animator>();
+            rb = GetComponentInChildren<Rigidbody2D>();
+            anim = GetComponentInChildren<Animator>();
             target = GameObject.FindWithTag("Player").transform;
         }
 
